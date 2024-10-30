@@ -8,7 +8,7 @@
   },
   "author": "Glenn Dirkx",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "@babel/cli": "^7.25.6",
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
@@ -22,5 +22,8 @@
     "sass": "^1.79.1",
     "typescript": "^5.6.2",
     "uglify-js": "^3.19.3"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.47"
   }
 }
