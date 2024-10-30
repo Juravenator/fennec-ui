@@ -1,5 +1,5 @@
-@import "./other";
+@use "other";
 
 body {
-  background-color: $some_value;
+  background-color: other.$some_value;
 }
