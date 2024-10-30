@@ -25,17 +25,17 @@ build/index.html: src/html/index.html
 		$? > $@
 
 build/index.js: $(shell find src/js -name '*.ts' -type f)
-	mkdir -p build/js build/rollup build/babel
+	mkdir -p cache/js cache/rollup cache/babel
 	npx tsc
-	npx rollup --config=.config/rollup.mjs build/js/index.js --file build/rollup/index.js
-	npx babel --config-file=./.config/babel.json build/rollup/index.js > build/babel/index.js
-	npx uglifyjs build/babel/index.js > $@
+	npx rollup --config=.config/rollup.mjs cache/js/index.js --file cache/rollup/index.js
+	npx babel --config-file=./.config/babel.json cache/rollup/index.js > cache/babel/index.js
+	npx uglifyjs cache/babel/index.js > $@
 
 build/index.css: $(shell find src/css -name '*.scss' -type f)
-	mkdir -p $$(dirname $@) build/css
-	npx sass --no-source-map src/css/main.scss build/css/index.css
-	npx postcss --config=.config --no-map build/css/index.css -o $@
+	mkdir -p $$(dirname $@) cache/css
+	npx sass --no-source-map src/css/main.scss cache/css/index.css
+	npx postcss --config=.config --no-map cache/css/index.css -o $@
 
 .PHONY: clean
 clean:
-	rm -rf build
+	rm -rf build cache
