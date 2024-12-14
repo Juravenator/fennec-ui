@@ -33,7 +33,7 @@ build/index.html: src/html/index.html
 		--use-short-doctype \
 		$? > $@
 
-build/index.js: $(shell find src/js -name '*.ts' -type f)
+build/index.js: $(shell find src/js -regex '.*\.ts[x]?' -type f)
 	mkdir -p cache/js cache/rollup cache/babel
 	npx tsc
 	npx rollup --config=.config/rollup.mjs cache/js/index.js --file cache/rollup/index.js
