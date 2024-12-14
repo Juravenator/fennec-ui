@@ -1,8 +1,11 @@
 SHELL:=/bin/bash
 .DEFAULT_GOAL := build
 
+node_modules: package.json package-lock.json
+	npm i
+
 .PHONY: build
-build: build/index.html build/index.js build/index.css static
+build: node_modules build/index.html build/index.js build/index.css static
 
 .PHONY: static
 static: $(shell find src/static -maxdepth 1 -mindepth 1 ||:)
