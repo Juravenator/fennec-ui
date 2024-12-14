@@ -3,6 +3,7 @@ SHELL:=/bin/bash
 
 node_modules: package.json package-lock.json
 	npm i
+	touch -m node_modules
 
 .PHONY: build
 build: node_modules build/index.html build/index.js build/index.css static
