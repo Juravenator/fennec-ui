@@ -1,15 +1,10 @@
 import { ComponentChildren } from "preact";
 
-// interface ElementParams {
-//   title: string;
-//   children: ComponentChildren;
-// }
-
-export function Element(title: String, children: ComponentChildren = []) {
+export function Element(args: {title: String, children?: ComponentChildren} = {title: "notitle"}) {
   return (
     <div class="card">
-      <h1>{title}</h1>
-      {children}
+      <h1>{args.title}</h1>
+      {args.children}
     </div>
   );
 };

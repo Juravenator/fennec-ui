@@ -9,6 +9,9 @@ p.innerText = other.toString(); // IE6
 // p.textContent = other.toString(); // No IE6
 document.body.appendChild(p);
 
-// Doesn't work on IE6
-const e = Element("element");
-render(e, document.body); // No IE
+// render() doesn't work on IE6 and would need a custom written renderer.
+render(
+  <Element title="element">
+    <p>subelement</p>
+  </Element>,
+  document.body);
